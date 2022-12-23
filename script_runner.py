@@ -2,7 +2,9 @@ import subprocess
 import sys
 import os
 
-AMQP_API_CLIENT_PACKAGE = "amqp-api-client-py"
+AIO_PIKA_PACKAGE = "aio_pika"
+AMQP_API_CLIENT_PACKAGE = "amqp_api_client_py"
+COOPLAN_INTEGRATION_TEST_BOILERPLATE_PACKAGE = "cooplan_integration_test_boilerplate"
 
 
 def main():
@@ -14,8 +16,13 @@ def main():
     if not run_all_test_scripts(sys.argv[1], sys.argv[2]):
         exit(1)
 
+
 def install_dependencies():
-    subprocess.check_call([sys.executable, "-m", "pip", "install", AMQP_API_CLIENT_PACKAGE])
+    subprocess.check_call([sys.executable, "-m", "pip", "install",
+                           AIO_PIKA_PACKAGE,
+                           AMQP_API_CLIENT_PACKAGE,
+                           COOPLAN_INTEGRATION_TEST_BOILERPLATE_PACKAGE])
+
 
 def run_all_test_scripts(directory, api_token) -> bool:
     test_processes = {}
@@ -47,6 +54,7 @@ def run_all_test_scripts(directory, api_token) -> bool:
             print(f"[FAIL] {filepath}")
 
     return is_all_ok
+
 
 if __name__ == "__main__":
     main()
