@@ -17,7 +17,7 @@ def main():
     install_dependencies()
 
     parallel_mode = True
-    if len(sys.argv == 4):
+    if len(sys.argv) == 4:
         parallel_mode = sys.argv[3].lower() == 'true'
 
     if parallel_mode:
