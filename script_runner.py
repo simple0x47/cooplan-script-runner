@@ -6,6 +6,7 @@ AIO_PIKA_PACKAGE = "aio_pika"
 AMQP_API_CLIENT_PACKAGE = "amqp_api_client_py"
 COOPLAN_INTEGRATION_TEST_BOILERPLATE_PACKAGE = "cooplan_integration_test_boilerplate"
 GIT_PACKAGE = "GitPython"
+MONGODB_PACKAGE = "pymongo[srv]"
 
 
 def main():
@@ -23,7 +24,8 @@ def install_dependencies():
                            AIO_PIKA_PACKAGE,
                            AMQP_API_CLIENT_PACKAGE,
                            COOPLAN_INTEGRATION_TEST_BOILERPLATE_PACKAGE,
-                           GIT_PACKAGE])
+                           GIT_PACKAGE,
+                           MONGODB_PACKAGE])
 
 
 def run_all_test_scripts(directory, api_token) -> bool:
